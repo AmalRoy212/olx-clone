@@ -34,8 +34,6 @@ function Header() {
     })
   },[])
 
-  console.log(allSearch,'dsjfkjdfhksfdjfh')
-
   return (
     <div className="headerParentDiv" >
       <div className="headerChildDiv">
@@ -77,8 +75,9 @@ function Header() {
           <hr />
         </div>
         {user && <span onClick={()=>{
-          firebase.auth().signOut();
-          history.push('/login')
+          firebase.auth().signOut().then(()=>{
+            history.push('/login')
+          });
         }}>Log Out</span>}
         <div className="sellMenu">
           <SellButton></SellButton>
@@ -100,7 +99,6 @@ function Header() {
           {allSearch.forEach((search)=>{
             <h3>hi{search.searchData}</h3>
           })}
-          <h1>hi</h1>
         </div>
       </div>}
     </div>

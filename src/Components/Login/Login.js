@@ -17,7 +17,7 @@ function Login() {
   //useEffect used for managing the loading
   useEffect(()=>{
     setLoading(false)
-  },[]);
+  });
 
   //fucntion for handling the login
   const loginHandler = (e) => {
@@ -26,7 +26,7 @@ function Login() {
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
       history.push('/');
     }).catch((error) => {
-      alert(error.message);
+      console.log(error.message);
     })
   }
 
