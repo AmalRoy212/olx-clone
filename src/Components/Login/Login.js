@@ -45,7 +45,7 @@ function Login() {
       :
       <div>
         <div className="loginParentDiv">
-          <img width="200px" height="200px" src={Logo}></img>
+          <img alt='logo' width="200px" height="200px" src={Logo}></img>
           <form onSubmit={loginHandler}>
             <label htmlFor="fname">Email</label>
             <br />
@@ -78,9 +78,9 @@ function Login() {
             <br />
             <button>Login</button>
           </form>
-          <a onClick={()=>{
+          <p onClick={()=>{
             history.push('/signup')
-          }}>Signup</a>
+          }}>Signup</p>
         </div>
       </div>
 

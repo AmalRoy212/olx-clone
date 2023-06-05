@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
 
 export const LoadingContext = createContext(null);
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
@@ -14,25 +14,6 @@ function Header() {
   const history = useHistory();
   const {firebase} = useContext(FirebaseContext);
   const {user} = useContext(AuthContext);
-  const [showSearch,setShowSearch] = useState(false);
-  const [searchData,setSearchData] = useState('');
-  let allSearch = [];
-
-  //function for keeping the search history
-  const searchHistoryHandler = ()=>{
-    firebase.firestore().collection('searches').add({
-    }).then(()=>{
-      history.push('/products');
-    })
-  }
-
-  useEffect(()=>{
-    firebase.firestore().collection('searches').get().then((snapshot)=>{
-      snapshot.docs.map((searches)=>{
-        allSearch.push(searches.data());
-      })
-    })
-  })
 
   return (
     <div className="headerParentDiv" >
@@ -50,17 +31,10 @@ function Header() {
             <input
               type="text"
               placeholder="Find car,mobile phone and more..."
-              value={searchData}
-              onFocus={()=>{
-                setShowSearch(true);
-              }}
-              onChange={(e)=>{
-                setSearchData(e.target.value)
-              }}
             />
-          </div>
-          <div className="searchAction" onClick={searchHistoryHandler}>
+            <div style={{marginTop:'-2px'}} className="searchAction">
             <Search color="#ffffff"></Search>
+          </div>
           </div>
         </div>
         <div className="language">
@@ -89,18 +63,6 @@ function Header() {
           </div>
         </div>
       </div>
-      {showSearch && <div style={{height:'50vh',width:"100%",justifyContent:'center',display:'flex',background:'none',zIndex:'3'}}
-        onMouseLeave={()=>{
-          setShowSearch(false)
-        }}
-        
-      >
-        <div style={{backgroundColor:'#bbc1c9',width:'44.5%',height:'100%',marginLeft:'-1.5rem'}}>
-          {allSearch.forEach((search)=>{
-            <h3>hi{search.searchData}</h3>
-          })}
-        </div>
-      </div>}
     </div>
     
   );
