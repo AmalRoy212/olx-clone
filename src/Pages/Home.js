@@ -10,7 +10,7 @@ import { AuthContext } from '../store/Context';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Home(props) {
-  const { loading, setLoading } = useContext(LoadingContext);
+  const { setLoading } = useContext(LoadingContext);
   const { user } = useContext(AuthContext);
   const history = useHistory();
   useEffect(()=>{
@@ -18,7 +18,7 @@ function Home(props) {
       history.push('/login');
     }
     setLoading(false);
-  },[loading]);
+  });
 
   return (
     <div className="homeParentDiv">

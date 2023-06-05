@@ -15,7 +15,7 @@ import Load from './store/LodingContext';
 import Products from './Pages/Products';
 
 function App() {
-  const { user, setUser } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const { firebase } = useContext(FirebaseContext);
 
   useEffect(() => {
