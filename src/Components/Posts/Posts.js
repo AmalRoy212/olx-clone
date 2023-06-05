@@ -22,7 +22,7 @@ function Posts() {
       });
       setProducts(allPosts);
     })
-  },[])
+  })
 
   return (
     <div className="postParentDiv">

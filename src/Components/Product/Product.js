@@ -19,7 +19,7 @@ function Product() {
       });
       setProducts(allPosts);
     })
-  },[])
+  })
   return (
     <div style={{width:'100%',height:'100vh',display:'flex',justifyContent:'center',alignContent:'center',paddingTop:'7rem',backgroundColor:'#bbc1c9'}}>
       <div className="cards">

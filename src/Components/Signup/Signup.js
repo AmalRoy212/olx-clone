@@ -18,7 +18,7 @@ export default function Signup() {
   //useEffect used for managing the loading
   useEffect(()=>{
     setLoading(false)
-  },[])
+  })
 
   //function for hanlding the sign up button
   const submitHandler = (e) => {

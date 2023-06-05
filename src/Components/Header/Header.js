@@ -32,7 +32,7 @@ function Header() {
         allSearch.push(searches.data());
       })
     })
-  },[])
+  })
 
   return (
     <div className="headerParentDiv" >

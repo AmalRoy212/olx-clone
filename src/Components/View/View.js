@@ -17,7 +17,7 @@ function View() {
         console.log(userDetails);
       });
     })
-  },[])
+  })
 
   return (
     <div className="viewParentDiv">
